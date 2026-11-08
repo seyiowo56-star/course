@@ -1,464 +1,1009 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Course - News</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Course Project">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-<link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="styles/news_styles.css">
-<link rel="stylesheet" type="text/css" href="styles/news_responsive.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBTECH | News Details</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0f4c75;
+            --secondary: #3282b8;
+            --light: #f4f8fb;
+            --white: #ffffff;
+            --dark: #172b3a;
+            --text: #5d6b78;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* ================= HEADER ================= */
+
+        .header {
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.07);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header_content {
+            width: 90%;
+            max-width: 1250px;
+            min-height: 90px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo_container img {
+            width: 150px;
+            height: auto;
+            display: block;
+        }
+
+        .main_nav_list {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .main_nav_list a {
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .main_nav_list a:hover,
+        .main_nav_list a.active {
+            color: var(--secondary);
+        }
+
+        .hamburger_container {
+            display: none;
+            font-size: 25px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* ================= PAGE BANNER ================= */
+
+        .page_banner {
+            background: linear-gradient(
+                rgba(15,76,117,0.92),
+                rgba(15,76,117,0.92)
+            ),
+            url('img/carousel-1.jpg') center/cover no-repeat;
+
+            min-height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .banner_content h1 {
+            color: var(--white);
+            font-family: 'Nunito', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .breadcrumb {
+            color: #dcecf7;
+            font-size: 15px;
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+        }
+
+        .breadcrumb span {
+            margin: 0 10px;
+            color: #a9c9df;
+        }
+
+        /* ================= NEWS SECTION ================= */
+
+        .news_section {
+            padding: 85px 5%;
+            background: var(--light);
+        }
+
+        .news_container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .news_heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .news_heading .sub_heading {
+            display: inline-block;
+            color: var(--secondary);
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .news_heading h2 {
+            font-family: 'Nunito', sans-serif;
+            color: var(--dark);
+            font-size: 34px;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .news_heading p {
+            margin-top: 12px;
+            font-size: 15px;
+        }
+
+        .news_layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* Main article */
+
+        .news_article {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(15,76,117,0.07);
+        }
+
+        .news_image {
+            width: 100%;
+            overflow: hidden;
+            background: #eaf1f6;
+        }
+
+        .news_image img {
+            display: block;
+            width: 100%;
+            max-height: 480px;
+            object-fit: contain;
+        }
+
+        .article_content {
+            padding: 35px;
+        }
+
+        .news_tag {
+            display: inline-block;
+            background: #e5f2fa;
+            color: var(--primary);
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .article_content h2 {
+            font-family: 'Nunito', sans-serif;
+            color: var(--dark);
+            font-size: 27px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .article_content p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .article_content h3 {
+            color: var(--primary);
+            font-family: 'Nunito', sans-serif;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .article_content ul {
+            list-style: none;
+            margin: 12px 0 20px;
+        }
+
+        .article_content ul li {
+            position: relative;
+            padding-left: 27px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .article_content ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 3px;
+            color: var(--secondary);
+            font-size: 13px;
+        }
+
+        .article_content strong {
+            color: var(--dark);
+        }
+
+        /* ================= SIDEBAR ================= */
+
+        .news_sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .sidebar_box {
+            background: var(--white);
+            padding: 28px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(15,76,117,0.07);
+        }
+
+        .sidebar_box h3 {
+            font-family: 'Nunito', sans-serif;
+            color: var(--primary);
+            font-size: 19px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e8f0f5;
+        }
+
+        .job_info {
+            display: flex;
+            gap: 13px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .job_info i {
+            color: var(--secondary);
+            font-size: 18px;
+            margin-top: 5px;
+            width: 20px;
+        }
+
+        .job_info h4 {
+            color: var(--dark);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .job_info p {
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .apply_box {
+            background: var(--primary);
+            padding: 28px;
+            border-radius: 10px;
+            color: var(--white);
+        }
+
+        .apply_box h3 {
+            font-family: 'Nunito', sans-serif;
+            color: var(--white);
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .apply_box p {
+            font-size: 14px;
+            color: #e0edf5;
+            margin-bottom: 20px;
+        }
+
+        .apply_btn {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary);
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 800;
+            transition: 0.3s;
+        }
+
+        .apply_btn:hover {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        /* ================= FOOTER ================= */
+
+        .footer {
+            position: relative;
+            background: var(--primary);
+            color: var(--white);
+            margin-top: 0;
+            padding-top: 150px;
+            overflow: hidden;
+        }
+
+        .footer_wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 125px;
+            display: block;
+        }
+
+        .footer_content {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 0 55px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 35px;
+        }
+
+        .footer_content h3 {
+            font-family: 'Nunito', sans-serif;
+            color: var(--white);
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer_content p {
+            font-size: 14px;
+            color: #d6e6f0;
+            margin-bottom: 12px;
+        }
+
+        .footer_links {
+            list-style: none;
+        }
+
+        .footer_links li {
+            margin-bottom: 12px;
+        }
+
+        .footer_links a {
+            color: #d6e6f0;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .footer_links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer_links i {
+            margin-right: 9px;
+            font-size: 12px;
+        }
+
+        .footer_contact p i {
+            color: #a9d4ed;
+            margin-right: 10px;
+        }
+
+        .newsletter_form {
+            display: flex;
+            background: var(--white);
+            padding: 5px;
+            border-radius: 5px;
+            margin-top: 18px;
+        }
+
+        .newsletter_form input {
+            width: 100%;
+            min-width: 0;
+            border: none;
+            outline: none;
+            padding: 12px;
+            font-family: inherit;
+        }
+
+        .newsletter_form button {
+            border: none;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 0 14px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .footer_bar {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding: 22px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer_bar p {
+            font-size: 13px;
+            color: #d6e6f0;
+        }
+
+        .footer_bar a {
+            color: var(--white);
+        }
+
+        .footer_social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer_social a {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 50%;
+            color: var(--white);
+            transition: 0.3s;
+        }
+
+        .footer_social a:hover {
+            background: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        /* ================= RESPONSIVE DESIGN ================= */
+
+        @media (max-width: 991px) {
+
+            .header_content {
+                min-height: 80px;
+            }
+
+            .hamburger_container {
+                display: block;
+            }
+
+            .main_nav_container {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 20px 5%;
+                box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+            }
+
+            .main_nav_container.show {
+                display: block;
+            }
+
+            .main_nav_list {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+            }
+
+            .news_layout {
+                grid-template-columns: 1fr;
+            }
+
+            .news_sidebar {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer_content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .header_content {
+                width: 92%;
+            }
+
+            .logo_container img {
+                width: 125px;
+            }
+
+            .page_banner {
+                min-height: 210px;
+            }
+
+            .banner_content h1 {
+                font-size: 29px;
+            }
+
+            .news_section {
+                padding: 55px 5%;
+            }
+
+            .news_heading h2 {
+                font-size: 25px;
+            }
+
+            .article_content {
+                padding: 23px 18px;
+            }
+
+            .article_content h2 {
+                font-size: 22px;
+            }
+
+            .article_content h3 {
+                font-size: 18px;
+            }
+
+            .news_sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar_box,
+            .apply_box {
+                padding: 23px;
+            }
+
+            .footer {
+                padding-top: 110px;
+            }
+
+            .footer_wave {
+                height: 90px;
+            }
+
+            .footer_content {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding-top: 25px;
+            }
+
+            .footer_bar {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="super_container">
+    <!-- ================= HEADER ================= -->
 
-	<!-- Header -->
+    <header class="header">
+        <div class="header_content">
 
-	<header class="header d-flex flex-row">
-		<div class="header_content d-flex flex-row align-items-center">
-			<!-- Logo -->
-			<div class="logo_container">
-				<div class="logo">
-					<img src="images/logo.png" alt="">
-					<span>course</span>
-				</div>
-			</div>
+            <div class="logo_container">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="IBTECH Computer Training">
+                </a>
+            </div>
 
-			<!-- Main Navigation -->
-			<nav class="main_nav_container">
-				<div class="main_nav">
-					<ul class="main_nav_list">
-						<li class="main_nav_item"><a href="index.html">home</a></li>
-						<li class="main_nav_item"><a href="#">about us</a></li>
-						<li class="main_nav_item"><a href="courses.html">courses</a></li>
-						<li class="main_nav_item"><a href="elements.html">elements</a></li>
-						<li class="main_nav_item"><a href="#">news</a></li>
-						<li class="main_nav_item"><a href="contact.html">contact</a></li>
-					</ul>
-				</div>
-			</nav>
-		</div>
-		<div class="header_side d-flex flex-row justify-content-center align-items-center">
-			<img src="images/phone-call.svg" alt="">
-			<span>+43 4566 7788 2457</span>
-		</div>
+            <div class="hamburger_container" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
 
-		<!-- Hamburger -->
-		<div class="hamburger_container">
-			<i class="fas fa-bars trans_200"></i>
-		</div>
+            <nav class="main_nav_container" id="mainNavigation">
+                <ul class="main_nav_list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="location.html">Location</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
 
-	</header>
-	
-	<!-- Menu -->
-	<div class="menu_container menu_mm">
+        </div>
+    </header>
 
-		<!-- Menu Close Button -->
-		<div class="menu_close_container">
-			<div class="menu_close"></div>
-		</div>
+    <!-- ================= PAGE BANNER ================= -->
 
-		<!-- Menu Items -->
-		<div class="menu_inner menu_mm">
-			<div class="menu menu_mm">
-				<ul class="menu_list menu_mm">
-					<li class="menu_item menu_mm"><a href="index.html">Home</a></li>
-					<li class="menu_item menu_mm"><a href="#">About us</a></li>
-					<li class="menu_item menu_mm"><a href="courses.html">Courses</a></li>
-					<li class="menu_item menu_mm"><a href="elements.html">Elements</a></li>
-					<li class="menu_item menu_mm"><a href="#">News</a></li>
-					<li class="menu_item menu_mm"><a href="contact.html">Contact</a></li>
-				</ul>
+    <section class="page_banner">
+        <div class="banner_content">
+            <h1>NEWS DETAILS</h1>
 
-				<!-- Menu Social -->
-				
-				<div class="menu_social_container menu_mm">
-					<ul class="menu_social menu_mm">
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-instagram"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-twitter"></i></a></li>
-					</ul>
-				</div>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <a href="#">News</a>
+                <span>/</span>
+                Vacancy
+            </div>
+        </div>
+    </section>
 
-				<div class="menu_copyright menu_mm"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-			</div>
+    <!-- ================= NEWS SECTION ================= -->
 
-		</div>
+    <section class="news_section">
 
-	</div>
-	
-	<!-- Home -->
+        <div class="news_container">
 
-	<div class="home">
-		<div class="home_background_container prlx_parent">
-			<div class="home_background prlx" style="background-image:url(images/news_background.jpg)"></div>
-		</div>
-		<div class="home_content">
-			<h1>The News</h1>
-		</div>
-	</div>
+            <div class="news_heading">
+                <span class="sub_heading">IBTECH Latest News</span>
+                <h2>Job Opportunities at IBTECH</h2>
+                <p>Explore our latest opportunities and become part of our growing team.</p>
+            </div>
 
-	<!-- News -->
+            <div class="news_layout">
 
-	<div class="news">
-		<div class="container">
-			<div class="row">
-				
-				<!-- News Column -->
+                <!-- MAIN NEWS ARTICLE -->
 
-				<div class="col-lg-8">
-					
-					<div class="news_posts">
-						<!-- News Post -->
-						<div class="news_post">
-							<div class="news_post_image">
-								<img src="images/news_1.jpg" alt="https://unsplash.com/@dsmacinnes">
-							</div>
-							<div class="news_post_top d-flex flex-column flex-sm-row">
-								<div class="news_post_date_container">
-									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
-										<div>18</div>
-										<div>dec</div>
-									</div>
-								</div>
-								<div class="news_post_title_container">
-									<div class="news_post_title">
-										<a href="news_post.html">Why do you need a qualification?</a>
-									</div>
-									<div class="news_post_meta">
-										<span class="news_post_author"><a href="#">By Christian Smith</a></span>
-										<span>|</span>
-										<span class="news_post_comments"><a href="#">3 Comments</a></span>
-									</div>
-								</div>
-							</div>
-							<div class="news_post_text">
-								<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum. Etiam eu purus nec eros varius luctus. Praesent finibus risus facilisis ultricies.</p>
-							</div>
-							<div class="news_post_button text-center trans_200">
-								<a href="news_post.html">Read More</a>
-							</div>
-						</div>
+                <article class="news_article">
 
-						<!-- News Post -->
-						<div class="news_post">
-							<div class="news_post_image">
-								<img src="images/news_2.jpg" alt="https://unsplash.com/@dsmacinnes">
-							</div>
-							<div class="news_post_top d-flex flex-column flex-sm-row">
-								<div class="news_post_date_container">
-									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
-										<div>18</div>
-										<div>dec</div>
-									</div>
-								</div>
-								<div class="news_post_title_container">
-									<div class="news_post_title">
-										<a href="news_post.html">Our new courses just for you?</a>
-									</div>
-									<div class="news_post_meta">
-										<span class="news_post_author"><a href="#">By Christian Smith</a></span>
-										<span>|</span>
-										<span class="news_post_comments"><a href="#">3 Comments</a></span>
-									</div>
-								</div>
-							</div>
-							<div class="news_post_text">
-								<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum. Etiam eu purus nec eros varius luctus. Praesent finibus risus facilisis ultricies.</p>
-							</div>
-							<div class="news_post_button text-center trans_200">
-								<a href="news_post.html">Read More</a>
-							</div>
-						</div>
+                    <div class="news_image">
+                        <img src="img/1a01246bd66fb499cb8756fa215f1f730.png"
+                             alt="IBTECH Receptionist Vacancy Announcement">
+                    </div>
 
-						<!-- News Post -->
-						<div class="news_post">
-							<div class="news_post_image">
-								<img src="images/news_3.jpg" alt="https://unsplash.com/@dsmacinnes">
-							</div>
-							<div class="news_post_top d-flex flex-column flex-sm-row">
-								<div class="news_post_date_container">
-									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
-										<div>18</div>
-										<div>dec</div>
-									</div>
-								</div>
-								<div class="news_post_title_container">
-									<div class="news_post_title">
-										<a href="news_post.html">Why take our graduate program??</a>
-									</div>
-									<div class="news_post_meta">
-										<span class="news_post_author"><a href="#">By Christian Smith</a></span>
-										<span>|</span>
-										<span class="news_post_comments"><a href="#">3 Comments</a></span>
-									</div>
-								</div>
-							</div>
-							<div class="news_post_text">
-								<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum. Etiam eu purus nec eros varius luctus. Praesent finibus risus facilisis ultricies.</p>
-							</div>
-							<div class="news_post_button text-center trans_200">
-								<a href="news_post.html">Read More</a>
-							</div>
-						</div>
-					</div>
+                    <div class="article_content">
 
-					<!-- Page Nav -->
+                        <span class="news_tag">Career Opportunity</span>
 
-					<div class="news_page_nav">
-						<ul>
-							<li class="active text-center trans_200"><a href="#">01</a></li>
-							<li class="text-center trans_200"><a href="#">02</a></li>
-							<li class="text-center trans_200"><a href="#">03</a></li>
-						</ul>
-					</div>
+                        <h2>Vacancy: Receptionist / Front Desk Officer</h2>
 
-				</div>
+                        <p>
+                            IBTECH Computer Training is a technology and digital
+                            training organization committed to equipping individuals
+                            with practical computer and digital skills for education,
+                            employment and entrepreneurship.
+                        </p>
 
-				<!-- Sidebar Column -->
+                        <p>
+                            We are looking for a <strong>friendly, professional and
+                            well-organized Receptionist / Front Desk Officer</strong>
+                            to join our team and serve as the first point of contact
+                            for students, visitors, clients and other stakeholders.
+                        </p>
 
-				<div class="col-lg-4">
-					<div class="sidebar">
+                        <p>
+                            Female candidates are particularly encouraged to apply.
+                        </p>
 
-						<!-- Archives -->
-						<div class="sidebar_section">
-							<div class="sidebar_section_title">
-								<h3>Archives</h3>
-							</div>
-							<ul class="sidebar_list">
-								<li class="sidebar_list_item"><a href="#">Design Courses</a></li>
-								<li class="sidebar_list_item"><a href="#">All you need to know</a></li>
-								<li class="sidebar_list_item"><a href="#">Uncategorized</a></li>
-								<li class="sidebar_list_item"><a href="#">About Our Departments</a></li>
-								<li class="sidebar_list_item"><a href="#">Choose the right course</a></li>
-							</ul>
-						</div>
+                        <h3>Key Responsibilities</h3>
 
-						<!-- Latest Posts -->
+                        <ul>
+                            <li>Welcome and attend to students, visitors, clients and guests professionally.</li>
+                            <li>Answer phone calls, respond to enquiries and provide accurate information about IBTECH training programmes and services.</li>
+                            <li>Register and assist students with enquiries, admissions and basic administrative processes.</li>
+                            <li>Maintain a professional and welcoming reception area.</li>
+                            <li>Manage incoming and outgoing correspondence and messages.</li>
+                            <li>Schedule appointments and assist with daily administrative activities.</li>
+                            <li>Keep basic records of visitors, students, enquiries and office activities.</li>
+                            <li>Assist management and other staff with administrative tasks when required.</li>
+                            <li>Support the promotion of IBTECH training programmes through social media.</li>
+                            <li>Create and publish simple social media content, including posts, announcements, pictures and training updates.</li>
+                            <li>Respond to basic enquiries and messages received through social media platforms.</li>
+                            <li>Assist in taking photographs and videos and documenting IBTECH activities when required.</li>
+                            <li>Perform other duties related to front-desk and office administration as assigned.</li>
+                        </ul>
 
-						<div class="sidebar_section">
-							<div class="sidebar_section_title">
-								<h3>Latest posts</h3>
-							</div>
-							
-							<div class="latest_posts">
-								
-								<!-- Latest Post -->
-								<div class="latest_post">
-									<div class="latest_post_image">
-										<img src="images/latest_1.jpg" alt="https://unsplash.com/@dsmacinnes">
-									</div>
-									<div class="latest_post_title"><a href="news_post.html">Why do you need a qualification?</a></div>
-									<div class="latest_post_meta">
-										<span class="latest_post_author"><a href="#">By Christian Smith</a></span>
-										<span>|</span>
-										<span class="latest_post_comments"><a href="#">3 Comments</a></span>
-									</div>
-								</div>
+                        <h3>Requirements</h3>
 
-								<!-- Latest Post -->
-								<div class="latest_post">
-									<div class="latest_post_image">
-										<img src="images/latest_2.jpg" alt="https://unsplash.com/@erothermel">
-									</div>
-									<div class="latest_post_title"><a href="news_post.html">Why do you need a qualification?</a></div>
-									<div class="latest_post_meta">
-										<span class="latest_post_author"><a href="#">By Christian Smith</a></span>
-										<span>|</span>
-										<span class="latest_post_comments"><a href="#">3 Comments</a></span>
-									</div>
-								</div>
+                        <ul>
+                            <li>Minimum of SSCE, OND, HND or equivalent qualification.</li>
+                            <li>Excellent verbal and written communication skills.</li>
+                            <li>Friendly, confident and professional personality.</li>
+                            <li>Good computer literacy and proficiency in Microsoft Office applications.</li>
+                            <li>Familiarity with social media platforms such as Facebook, Instagram, TikTok, WhatsApp and LinkedIn.</li>
+                            <li>Ability to create and assist with simple social media content.</li>
+                            <li>Ability to work independently and as part of a team.</li>
+                            <li>Must be punctual, responsible, presentable and willing to learn.</li>
+                        </ul>
 
-								<!-- Latest Post -->
-								<div class="latest_post">
-									<div class="latest_post_image">
-										<img src="images/latest_3.jpg" alt="https://unsplash.com/@element5digital">
-									</div>
-									<div class="latest_post_title"><a href="news_post.html">Why do you need a qualification?</a></div>
-									<div class="latest_post_meta">
-										<span class="latest_post_author"><a href="#">By Christian Smith</a></span>
-										<span>|</span>
-										<span class="latest_post_comments"><a href="#">3 Comments</a></span>
-									</div>
-								</div>
-								
-							</div>
-								
-						</div>
+                        <p>
+                            <strong>Female candidates are particularly encouraged to apply.</strong>
+                        </p>
 
-						<!-- Tags -->
+                        <h3>Preferred Skills</h3>
 
-						<div class="sidebar_section">
-							<div class="sidebar_section_title">
-								<h3>Tags</h3>
-							</div>
-							<div class="tags d-flex flex-row flex-wrap">
-								<div class="tag"><a href="#">Course</a></div>
-								<div class="tag"><a href="#">Design</a></div>
-								<div class="tag"><a href="#">FAQ</a></div>
-								<div class="tag"><a href="#">Teachers</a></div>
-								<div class="tag"><a href="#">School</a></div>
-								<div class="tag"><a href="#">Graduate</a></div>
-							</div>
-						</div>
+                        <ul>
+                            <li>Communicate confidently and professionally with students and visitors.</li>
+                            <li>Be comfortable speaking with people in person and over the phone.</li>
+                            <li>Use smartphones effectively for taking pictures, videos and posting content.</li>
+                            <li>Have an interest in social media and digital content creation.</li>
+                            <li>Have basic knowledge of Canva and similar design tools.</li>
+                            <li>Be proactive and able to handle multiple tasks.</li>
+                            <li>Have a positive attitude and strong customer-service orientation.</li>
+                        </ul>
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                        <h3>Working Schedule</h3>
 
-	<!-- Footer -->
+                        <ul>
+                            <li><strong>Days:</strong> Monday – Thursday</li>
+                            <li><strong>Time:</strong> 9:00 AM – 5:00 PM</li>
+                        </ul>
 
-	<footer class="footer">
-		<div class="container">
-			
-			<!-- Newsletter -->
+                        <h3>What We Offer</h3>
 
-			<div class="newsletter">
-				<div class="row">
-					<div class="col">
-						<div class="section_title text-center">
-							<h1>Subscribe to newsletter</h1>
-						</div>
-					</div>
-				</div>
+                        <ul>
+                            <li>A professional and friendly working environment.</li>
+                            <li>Opportunity to gain administrative, communication and digital skills.</li>
+                            <li>Practical experience in the technology and training sectors.</li>
+                            <li>Opportunity to develop social media and digital content skills.</li>
+                        </ul>
 
-				<div class="row">
-					<div class="col text-center">
-						<div class="newsletter_form_container mx-auto">
-							<form action="post">
-								<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="newsletter_email" class="newsletter_email" type="email" placeholder="Email Address" required="required" data-error="Valid email is required.">
-									<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">Subscribe</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
+                        <h3>How to Apply</h3>
 
-			</div>
+                        <p>
+                            Interested candidates should submit their
+                            <strong>CV and a brief application</strong> to
+                            IBTECH Computer Training using the contact details below.
+                        </p>
 
-			<!-- Footer Content -->
+                        <ul>
+                            <li><strong>Application Deadline:</strong> 31/08/2026</li>
+                            <li><strong>Email:</strong> info@ibtechcomputertraining.com</li>
+                            <li><strong>WhatsApp:</strong> +2348030749709</li>
+                        </ul>
 
-			<div class="footer_content">
-				<div class="row">
+                    </div>
+                </article>
 
-					<!-- Footer Column - About -->
-					<div class="col-lg-3 footer_col">
+                <!-- NEWS SIDEBAR -->
 
-						<!-- Logo -->
-						<div class="logo_container">
-							<div class="logo">
-								<img src="images/logo.png" alt="">
-								<span>course</span>
-							</div>
-						</div>
+                <aside class="news_sidebar">
 
-						<p class="footer_about_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum, tempor lacus.</p>
+                    <div class="sidebar_box">
 
-					</div>
+                        <h3>Job Information</h3>
 
-					<!-- Footer Column - Menu -->
+                        <div class="job_info">
+                            <i class="fas fa-briefcase"></i>
+                            <div>
+                                <h4>Position</h4>
+                                <p>Receptionist / Front Desk Officer</p>
+                            </div>
+                        </div>
 
-					<div class="col-lg-3 footer_col">
-						<div class="footer_column_title">Menu</div>
-						<div class="footer_column_content">
-							<ul>
-								<li class="footer_list_item"><a href="index.html">Home</a></li>
-								<li class="footer_list_item"><a href="#">About Us</a></li>
-								<li class="footer_list_item"><a href="courses.html">Courses</a></li>
-								<li class="footer_list_item"><a href="#">News</a></li>
-								<li class="footer_list_item"><a href="contact.html">Contact</a></li>
-							</ul>
-						</div>
-					</div>
+                        <div class="job_info">
+                            <i class="fas fa-calendar-days"></i>
+                            <div>
+                                <h4>Working Days</h4>
+                                <p>Monday – Thursday</p>
+                            </div>
+                        </div>
 
-					<!-- Footer Column - Usefull Links -->
+                        <div class="job_info">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Working Hours</h4>
+                                <p>9:00 AM – 5:00 PM</p>
+                            </div>
+                        </div>
 
-					<div class="col-lg-3 footer_col">
-						<div class="footer_column_title">Usefull Links</div>
-						<div class="footer_column_content">
-							<ul>
-								<li class="footer_list_item"><a href="#">Testimonials</a></li>
-								<li class="footer_list_item"><a href="#">FAQ</a></li>
-								<li class="footer_list_item"><a href="#">Community</a></li>
-								<li class="footer_list_item"><a href="#">Campus Pictures</a></li>
-								<li class="footer_list_item"><a href="#">Tuitions</a></li>
-							</ul>
-						</div>
-					</div>
+                        <div class="job_info">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <h4>Qualification</h4>
+                                <p>SSCE, OND, HND or equivalent</p>
+                            </div>
+                        </div>
 
-					<!-- Footer Column - Contact -->
+                        <div class="job_info">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>Organization</h4>
+                                <p>IBTECH Computer Training</p>
+                            </div>
+                        </div>
 
-					<div class="col-lg-3 footer_col">
-						<div class="footer_column_title">Contact</div>
-						<div class="footer_column_content">
-							<ul>
-								<li class="footer_contact_item">
-									<div class="footer_contact_icon">
-										<img src="images/placeholder.svg" alt="https://www.flaticon.com/authors/lucy-g">
-									</div>
-									Blvd Libertad, 34 m05200 Arévalo
-								</li>
-								<li class="footer_contact_item">
-									<div class="footer_contact_icon">
-										<img src="images/smartphone.svg" alt="https://www.flaticon.com/authors/lucy-g">
-									</div>
-									0034 37483 2445 322
-								</li>
-								<li class="footer_contact_item">
-									<div class="footer_contact_icon">
-										<img src="images/envelope.svg" alt="https://www.flaticon.com/authors/lucy-g">
-									</div>hello@company.com
-								</li>
-							</ul>
-						</div>
-					</div>
+                    </div>
 
-				</div>
-			</div>
+                    <div class="apply_box">
 
-			<!-- Footer Copyright -->
+                        <h3>Interested in This Position?</h3>
 
-			<div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
-				<div class="footer_copyright">
-					<span>Colorlib All rights reserved</span>
-				</div>
-				<div class="footer_social ml-sm-auto">
-					<ul class="menu_social">
-						<li class="menu_social_item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-						<li class="menu_social_item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-						<li class="menu_social_item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-						<li class="menu_social_item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-						<li class="menu_social_item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-					</ul>
-				</div>
-			</div>
+                        <p>
+                            Send your CV and a brief application to IBTECH
+                            Computer Training.
+                        </p>
 
-		</div>
-	</footer>
+                        <a href="mailto:info@ibtechcomputertraining.com"
+                           class="apply_btn">
+                            Apply via Email <i class="fas fa-arrow-right"></i>
+                        </a>
 
-</div>
+                    </div>
 
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/greensock/TweenMax.min.js"></script>
-<script src="plugins/greensock/TimelineMax.min.js"></script>
-<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
-<script src="plugins/greensock/animation.gsap.min.js"></script>
-<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
-<script src="plugins/scrollTo/jquery.scrollTo.min.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="js/news_custom.js"></script>
+                    <div class="sidebar_box">
+
+                        <h3>Contact Information</h3>
+
+                        <div class="job_info">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email Address</h4>
+                                <p>info@ibtechcomputertraining.com</p>
+                            </div>
+                        </div>
+
+                        <div class="job_info">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <p>+2348030749709</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer" id="contact">
+
+        <!-- Double Layer Wave -->
+        <svg class="footer_wave" viewBox="0 0 1440 150"
+             preserveAspectRatio="none"
+             xmlns="http://www.w3.org/2000/svg">
+
+            <path d="M0,65 C250,145 430,5 720,65 C1000,125 1210,5 1440,65 L1440,0 L0,0 Z"
+                  fill="#3282b8"/>
+
+            <path d="M0,90 C260,150 480,30 730,85 C1010,140 1220,30 1440,85 L1440,0 L0,0 Z"
+                  fill="#0f4c75"/>
+
+        </svg>
+
+        <div class="footer_content">
+
+            <!-- Courses -->
+
+            <div>
+                <h3>Our Courses</h3>
+
+                <ul class="footer_links">
+                    <li><a href="courses.html">Computer Fundamentals</a></li>
+                    <li><a href="courses.html">Diploma in Java</a></li>
+                    <li><a href="courses.html">Web Design</a></li>
+                    <li><a href="courses.html">Digital Marketing</a></li>
+                    <li><a href="courses.html">Microsoft Office Suite</a></li>
+                </ul>
+            </div>
+
+            <!-- Other Services -->
+
+            <div>
+                <h3>Other Services</h3>
+
+                <ul class="footer_links">
+                    <li><a href="#">School Management System</a></li>
+                    <li><a href="#">E-commerce Solutions</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+
+            <div class="footer_contact">
+                <h3>Get In Touch</h3>
+
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    info@ibtechcomputertraining.com
+                </p>
+
+                <p>
+                    <i class="fab fa-whatsapp"></i>
+                    +2348030749709
+                </p>
+
+                <p>
+                    <i class="fas fa-globe"></i>
+                    IBTECH Computer Training
+                </p>
+            </div>
+
+            <!-- Newsletter -->
+
+            <div>
+                <h3>Newsletter Signup</h3>
+
+                <p>
+                    Subscribe to our newsletter to receive important
+                    news, updates and information about our programmes.
+                </p>
+
+                <form class="newsletter_form" action="#">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" aria-label="Subscribe">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- Footer Bottom -->
+
+        <div class="footer_bar">
+
+            <p>
+                Copyright &copy; 2026
+                <a href="index.html">IBTECH Computer Training</a>.
+                All Rights Reserved.
+            </p>
+
+            <div class="footer_social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/2348030749709" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNavigation = document.getElementById('mainNavigation');
+
+        menuToggle.addEventListener('click', function () {
+            mainNavigation.classList.toggle('show');
+
+            const icon = menuToggle.querySelector('i');
+
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+    </script>
 
 </body>
 </html>

@@ -1,0 +1,1140 @@
+
+/* =========================================================
+   IBTECH COMPUTER TRAINING
+   SHARED COURSE PAGES STYLESHEET
+   Applies to Courses 1–8
+========================================================= */
+
+
+/* =========================
+   1. GENERAL STYLES
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary-color: #0f4c75;
+    --secondary-color: #3282b8;
+    --accent-color: #131314;
+    --dark-color: #102a43;
+    --text-color: #555;
+    --light-color: #f5f9fc;
+    --white: #ffffff;
+    --border-color: #e5eaf0;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+
+/* =========================
+   2. HEADER
+========================= */
+
+.header {
+    width: 100%;
+    background: var(--white);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+.nav-container {
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-menu li a {
+    color: var(--dark-color);
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    padding: 10px 0;
+}
+
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    bottom: 2px;
+    left: 0;
+    transition: var(--transition);
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+    color: var(--secondary-color);
+}
+
+.nav-menu li a:hover::after,
+.nav-menu li a.active::after {
+    width: 100%;
+}
+
+.nav-btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 12px 22px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.nav-btn:hover {
+    background: var(--accent-color);
+    color: var(--dark-color);
+    transform: translateY(-2px);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 25px;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+
+/* =========================
+   3. COURSE BANNER
+========================= */
+
+.course-banner {
+    min-height: 350px;
+    padding: 145px 0 75px;
+    background-color: var(--primary-color);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.course-banner h1 {
+    color: var(--white);
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.breadcrumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+}
+
+.breadcrumb a {
+    color: var(--accent-color);
+}
+
+.breadcrumb a:hover {
+    color: var(--white);
+}
+
+.breadcrumb span:last-child {
+    color: var(--white);
+}
+
+
+/* =========================
+   4. COURSE DETAILS LAYOUT
+========================= */
+
+.course-details {
+    background: var(--white);
+}
+
+.course-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 0.9fr);
+    align-items: start;
+    gap: 40px;
+}
+
+.course-main {
+    min-width: 0;
+}
+
+.course-image {
+    width: 100%;
+    height: 390px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    background: var(--light-color);
+}
+
+.course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.course-image:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =========================
+   5. COURSE META INFORMATION
+========================= */
+
+.course-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.course-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-color);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.course-meta i {
+    color: var(--accent-color);
+    font-size: 16px;
+}
+
+
+/* =========================
+   6. COURSE CONTENT
+========================= */
+
+.course-content h2 {
+    color: var(--primary-color);
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    line-height: 1.4;
+}
+
+.course-content p {
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 18px;
+    color: var(--text-color);
+}
+
+.course-section {
+    margin-top: 40px;
+}
+
+.course-section h2 {
+    position: relative;
+    padding-bottom: 12px;
+    margin-bottom: 22px;
+}
+
+.course-section h2::after {
+    content: '';
+    position: absolute;
+    width: 55px;
+    height: 3px;
+    background: var(--accent-color);
+    left: 0;
+    bottom: 0;
+}
+
+
+/* =========================
+   7. COURSE LISTS
+========================= */
+
+.course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.course-list li {
+    position: relative;
+    padding-left: 30px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.course-list li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 3px;
+    color: var(--secondary-color);
+    font-size: 14px;
+}
+
+
+/* =========================
+   8. COURSE WEEK / MODULE BOXES
+========================= */
+
+.course-week {
+    background: var(--light-color);
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 6px;
+    padding: 22px 25px;
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+.course-week:hover {
+    border-left-color: var(--accent-color);
+    transform: translateX(4px);
+    box-shadow: 0 5px 18px rgba(15, 76, 117, 0.08);
+}
+
+.course-week h3 {
+    color: var(--primary-color);
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.course-week .course-list {
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   9. COURSE CALL TO ACTION
+========================= */
+
+.course-cta {
+    background: var(--primary-color);
+    padding: 40px 35px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 45px;
+}
+
+.course-cta h2 {
+    color: var(--white);
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.course-cta p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--dark-color);
+    padding: 14px 28px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn i {
+    margin-left: 8px;
+}
+
+.btn:hover {
+    background: var(--white);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   10. COURSE SIDEBAR
+========================= */
+
+.course-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    min-width: 0;
+}
+
+.sidebar-box {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.sidebar-box h3 {
+    color: var(--primary-color);
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+
+/* =========================
+   11. COURSE INFORMATION
+========================= */
+
+.course-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    margin-bottom: 25px;
+}
+
+.course-info-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 13px;
+}
+
+.course-info-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.course-info-list li span {
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.course-info-list li span i {
+    color: var(--secondary-color);
+}
+
+.course-info-list li strong {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-align: right;
+}
+
+
+/* =========================
+   12. SIDEBAR BUTTON
+========================= */
+
+.sidebar-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 13px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.sidebar-btn:hover {
+    background: var(--accent-color);
+    color: var(--dark-color);
+}
+
+
+/* =========================
+   13. OTHER COURSES
+========================= */
+
+.other-courses {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.other-courses li {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.other-courses li:last-child {
+    border-bottom: none;
+}
+
+.other-courses li a {
+    display: block;
+    position: relative;
+    padding: 12px 5px 12px 22px;
+    font-size: 13px;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.other-courses li a::before {
+    content: '\f105';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 3px;
+    color: var(--secondary-color);
+}
+
+.other-courses li a:hover {
+    color: var(--secondary-color);
+    padding-left: 27px;
+}
+
+
+/* =========================
+   14. HELP BOX
+========================= */
+
+.help-box {
+    background: var(--light-color);
+}
+
+.help-box p {
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   15. FOOTER
+========================= */
+
+.footer {
+    position: relative;
+    background: var(--primary-color);
+    color: var(--white);
+    margin-top: 100px;
+    padding-top: 0;
+}
+
+
+/* =========================
+   16. FOOTER WAVE
+========================= */
+
+.footer-wave {
+    position: absolute;
+    width: 100%;
+    height: 110px;
+    top: -109px;
+    left: 0;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.footer-wave svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+/* =========================
+   17. FOOTER GRID
+========================= */
+
+.footer-container {
+    position: relative;
+    z-index: 2;
+    padding-top: 45px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.2fr 1.3fr;
+    gap: 35px;
+    padding-bottom: 50px;
+}
+
+.footer-col {
+    min-width: 0;
+}
+
+.footer-logo {
+    width: 170px;
+    height: auto;
+    object-fit: contain;
+    background: var(--white);
+    padding: 5px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.footer-col h3 {
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 22px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background: var(--accent-color);
+    left: 0;
+    bottom: 0;
+}
+
+.footer-col p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.footer-col ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-col ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    transition: var(--transition);
+}
+
+.footer-col ul li a:hover {
+    color: var(--accent-color);
+    padding-left: 5px;
+}
+
+
+/* =========================
+   18. SOCIAL LINKS
+========================= */
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--accent-color);
+    color: var(--dark-color);
+    transform: translateY(-4px);
+}
+
+
+/* =========================
+   19. NEWSLETTER
+========================= */
+
+.newsletter form {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.newsletter input {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 12px;
+    border: none;
+    outline: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 12px;
+    color: var(--dark-color);
+    background: var(--white);
+}
+
+.newsletter input::placeholder {
+    color: #999;
+}
+
+.newsletter button {
+    min-width: 48px;
+    border: none;
+    outline: none;
+    background: var(--accent-color);
+    color: var(--dark-color);
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 15px;
+    transition: var(--transition);
+}
+
+.newsletter button:hover {
+    background: var(--white);
+    color: var(--primary-color);
+}
+
+
+/* =========================
+   20. FOOTER BOTTOM
+========================= */
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 22px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 12px;
+    margin: 0;
+}
+
+.footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 12px;
+}
+
+.footer-legal a:hover {
+    color: var(--accent-color);
+}
+
+
+/* =========================================================
+   21. RESPONSIVE DESIGN
+   TABLETS AND SMALL LAPTOPS
+========================================================= */
+
+@media screen and (max-width: 1000px) {
+
+    .nav-container {
+        gap: 15px;
+    }
+
+    .logo img {
+        width: 150px;
+    }
+
+    .nav-menu {
+        gap: 16px;
+    }
+
+    .nav-menu li a {
+        font-size: 13px;
+    }
+
+    .nav-btn {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+
+    .course-layout {
+        grid-template-columns: minmax(0, 1.7fr) minmax(240px, 0.9fr);
+        gap: 25px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   22. TABLET RESPONSIVENESS
+========================================================= */
+
+@media screen and (max-width: 900px) {
+
+    .nav-container {
+        min-height: 75px;
+    }
+
+    .menu-toggle {
+        display: block;
+        order: 3;
+    }
+
+    .nav-btn {
+        margin-left: auto;
+        margin-right: 10px;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        display: block;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: 100%;
+        padding: 15px 5%;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-menu li a {
+        display: block;
+        padding: 13px 0;
+        font-size: 14px;
+    }
+
+    .nav-menu li a::after {
+        display: none;
+    }
+
+    .course-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .course-sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: start;
+    }
+
+    .help-box {
+        grid-column: 1 / -1;
+    }
+
+    .course-image {
+        height: 350px;
+    }
+
+    .course-banner {
+        min-height: 320px;
+    }
+
+    .course-banner h1 {
+        font-size: 32px;
+    }
+
+}
+
+
+/* =========================================================
+   23. MOBILE RESPONSIVENESS
+========================================================= */
+
+@media screen and (max-width: 700px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .section-padding {
+        padding: 55px 0;
+    }
+
+    .nav-container {
+        min-height: 70px;
+    }
+
+    .logo img {
+        width: 135px;
+    }
+
+    .navbar {
+        top: 70px;
+    }
+
+    .nav-btn {
+        padding: 9px 12px;
+        font-size: 11px;
+    }
+
+    .menu-toggle {
+        font-size: 23px;
+    }
+
+    .course-banner {
+        min-height: 280px;
+        padding: 120px 0 55px;
+    }
+
+    .course-banner h1 {
+        font-size: 26px;
+    }
+
+    .breadcrumb {
+        font-size: 12px;
+        gap: 8px;
+    }
+
+    .course-image {
+        height: 250px;
+        margin-bottom: 20px;
+    }
+
+    .course-meta {
+        gap: 12px;
+    }
+
+    .course-meta span {
+        font-size: 12px;
+    }
+
+    .course-content h2 {
+        font-size: 22px;
+    }
+
+    .course-content p {
+        font-size: 13px;
+    }
+
+    .course-section {
+        margin-top: 30px;
+    }
+
+    .course-week {
+        padding: 18px;
+        margin-bottom: 15px;
+    }
+
+    .course-week h3 {
+        font-size: 15px;
+    }
+
+    .course-list li {
+        font-size: 13px;
+        padding-left: 25px;
+    }
+
+    .course-cta {
+        padding: 30px 20px;
+    }
+
+    .course-cta h2 {
+        font-size: 21px;
+    }
+
+    .course-cta p {
+        font-size: 13px;
+    }
+
+    .course-sidebar {
+        grid-template-columns: 1fr;
+    }
+
+    .help-box {
+        grid-column: auto;
+    }
+
+    .sidebar-box {
+        padding: 22px;
+    }
+
+    .footer {
+        margin-top: 75px;
+    }
+
+    .footer-wave {
+        height: 75px;
+        top: -74px;
+    }
+
+    .footer-container {
+        padding-top: 25px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-bottom: 35px;
+    }
+
+    .footer-col h3 {
+        margin-bottom: 17px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .footer-legal {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+}
+
+
+/* =========================================================
+   24. SMALL MOBILE PHONES
+========================================================= */
+
+@media screen and (max-width: 400px) {
+
+    .logo img {
+        width: 115px;
+    }
+
+    .nav-btn {
+        padding: 8px 10px;
+        font-size: 10px;
+    }
+
+    .course-banner h1 {
+        font-size: 23px;
+    }
+
+    .course-image {
+        height: 210px;
+    }
+
+    .course-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .course-content h2 {
+        font-size: 20px;
+    }
+
+    .course-week {
+        padding: 15px;
+    }
+
+    .course-cta h2 {
+        font-size: 19px;
+    }
+
+    .btn {
+        padding: 12px 18px;
+        font-size: 12px;
+    }
+
+}

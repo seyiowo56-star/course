@@ -1,0 +1,668 @@
+
+/* GENERAL STYLING */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* HEADER */
+.main-header {
+    background: #fff;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.nav-container {
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo img {
+    width: 190px;
+    max-height: 70px;
+    object-fit: contain;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+
+.main-nav a {
+    color: #222;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.main-nav a:hover {
+    color: #3282b8;
+}
+
+.nav-register {
+    background: #0f4c75;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-register:hover {
+    background: #0c0c0b;
+    color: #0f4c75;
+}
+
+
+/* PAGE BANNER */
+.page-banner {
+    background:
+        linear-gradient(rgba(15, 76, 117, 0.88),
+        rgba(15, 76, 117, 0.88)),
+        url("../img/rs-slider1-bg.jpg") center/cover no-repeat;
+    color: #fff;
+}
+
+.banner-overlay {
+    padding: 75px 0;
+}
+
+.page-banner h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.page-banner p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.breadcrumb {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.breadcrumb a {
+    color: #111110;
+}
+
+.breadcrumb span:last-child {
+    color: #fff;
+}
+
+
+/* REGISTRATION SECTION */
+.registration-section {
+    padding: 80px 0;
+    background: #f7f9fc;
+}
+
+.registration-intro {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.section-label {
+    color: #3282b8;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.registration-intro h2 {
+    color: #0f4c75;
+    font-size: 32px;
+    margin: 8px 0 12px;
+}
+
+.registration-intro p {
+    color: #666;
+    font-size: 15px;
+}
+
+
+/* FORM LAYOUT */
+.registration-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.registration-form-box,
+.help-box,
+.contact-box {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+}
+
+.registration-form-box {
+    padding: 35px;
+}
+
+.form-heading {
+    border-bottom: 1px solid #e8edf1;
+    padding-bottom: 18px;
+    margin-bottom: 25px;
+}
+
+.form-heading h3 {
+    color: #0f4c75;
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+.form-heading p {
+    color: #888;
+    font-size: 13px;
+}
+
+.course-form-heading {
+    margin-top: 35px;
+}
+
+
+/* FORM FIELDS */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #dce2e8;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+    font-family: inherit;
+    color: #444;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.form-group input,
+.form-group select {
+    height: 48px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #3282b8;
+    box-shadow: 0 0 0 3px rgba(50, 130, 184, 0.1);
+}
+
+
+/* RADIO BUTTONS */
+.radio-group {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.radio-option {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 400 !important;
+}
+
+.radio-option input {
+    width: 17px;
+    height: 17px;
+    accent-color: #0f4c75;
+}
+
+
+/* AGREEMENT */
+.form-agreement {
+    margin: 10px 0 25px;
+    font-size: 13px;
+    color: #555;
+}
+
+.form-agreement label {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    cursor: pointer;
+}
+
+.form-agreement input {
+    margin-top: 5px;
+    accent-color: #0f4c75;
+}
+
+
+/* SUBMIT BUTTON */
+.submit-btn {
+    background: #0f4c75;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 15px 25px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn i {
+    margin-left: 10px;
+}
+
+.submit-btn:hover {
+    background: #111110;
+    color: #0f4c75;
+}
+
+
+/* SIDEBAR */
+.registration-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.help-box {
+    background: #0f4c75;
+    padding: 30px;
+    color: #fff;
+}
+
+.help-icon {
+    width: 55px;
+    height: 55px;
+    background: #111110;
+    color: #0f4c75;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+.help-box h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.help-box p {
+    font-size: 14px;
+    color: #e3edf5;
+    margin-bottom: 22px;
+}
+
+.help-btn {
+    display: inline-block;
+    background: #111110;
+    color: #0f4c75;
+    padding: 12px 22px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.help-btn:hover {
+    background: #fff;
+    color: #0f4c75;
+}
+
+.contact-box {
+    padding: 30px;
+}
+
+.contact-box h3 {
+    color: #0f4c75;
+    font-size: 20px;
+    margin-bottom: 22px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-bottom: 20px;
+}
+
+.contact-item i {
+    color: #3282b8;
+    font-size: 17px;
+    margin-top: 4px;
+}
+
+.contact-item p {
+    font-size: 13px;
+    color: #666;
+    overflow-wrap: anywhere;
+}
+
+
+/* FOOTER */
+/* FOOTER */
+.main-footer {
+    background: #0f4c75;
+    color: #fff;
+    position: relative;
+    margin-top: 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+    gap: 35px;
+    padding-top: 55px;
+    padding-bottom: 50px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.footer-about img {
+    width: 170px;
+    background: #fff;
+    padding: 7px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+}
+
+.footer-about p,
+.newsletter p {
+    color: #d7e5ef;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul a {
+    color: #d7e5ef;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.footer-column ul a:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+
+
+/* SOCIAL LINKS */
+.social-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.social-links a {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    background: #fff;
+    color: #0f4c75;
+}
+
+
+/* NEWSLETTER */
+.newsletter-form {
+    display: flex;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.newsletter-form input {
+    min-width: 0;
+    width: 100%;
+    padding: 13px;
+    border: none;
+    outline: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 13px;
+}
+
+.newsletter-form button {
+    background: #3282b8;
+    color: #fff;
+    border: none;
+    padding: 0 17px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.newsletter-form button:hover {
+    background: #fff;
+    color: #0f4c75;
+}
+
+
+/* FOOTER BOTTOM */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 20px 0;
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-bottom p,
+.footer-bottom a {
+    font-size: 12px;
+    color: #d7e5ef;
+}
+
+.footer-bottom-content div {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-bottom a:hover {
+    color: #fff;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1000px) {
+    .main-nav {
+        gap: 15px;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 800px) {
+    .nav-container {
+        flex-wrap: wrap;
+        padding: 12px 0;
+    }
+
+    .main-nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 10px 0;
+    }
+
+    .registration-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-sidebar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        width: 92%;
+    }
+
+    .nav-container {
+        gap: 10px;
+    }
+
+    .logo img {
+        width: 145px;
+    }
+
+    .nav-register {
+        padding: 10px 13px;
+        font-size: 12px;
+    }
+
+    .main-nav {
+        gap: 12px;
+    }
+
+    .main-nav a {
+        font-size: 12px;
+    }
+
+    .banner-overlay {
+        padding: 55px 0;
+    }
+
+    .page-banner h1 {
+        font-size: 29px;
+    }
+
+    .registration-section {
+        padding: 55px 0;
+    }
+
+    .registration-intro h2 {
+        font-size: 26px;
+    }
+
+    .registration-form-box {
+        padding: 22px 17px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .registration-sidebar {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-bottom-content div {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 380px) {
+    .main-nav {
+        gap: 9px;
+    }
+
+    .main-nav a {
+        font-size: 11px;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

@@ -4,11 +4,12 @@
 /* =========================================
    IBTECH COMPUTER TRAINING
    COMPLETE MAIN STYLESHEET
-   Colours:
-   Blue:   #0f4c75
-   Yellow: #ffb606
-   White:  #ffffff
+
+   Primary Blue: #0f4c75
+   Light Blue:   #3282b8
+   White:        #ffffff
 ========================================= */
+
 
 /* =========================================
    1. FONTS AND GENERAL STYLES
@@ -18,7 +19,7 @@
 
 :root {
     --ibtech-blue: #0f4c75;
-    --ibtech-yellow: #0f4c75;
+    --ibtech-yellow: #3282b8;
     --white: #ffffff;
     --light-bg: #f5f8fa;
     --text-color: #333333;
@@ -130,6 +131,7 @@ h4 { font-size: 14px; }
 .fill_height {
     height: 100%;
 }
+
 
 /* =========================================
    2. HEADER
@@ -268,6 +270,7 @@ h4 { font-size: 14px; }
     color: var(--ibtech-yellow);
 }
 
+
 /* =========================================
    3. MOBILE MENU
 ========================================= */
@@ -387,6 +390,7 @@ h4 { font-size: 14px; }
     color: var(--ibtech-blue);
 }
 
+
 /* =========================================
    4. HERO / HOME SLIDER
 ========================================= */
@@ -488,6 +492,7 @@ h4 { font-size: 14px; }
     right: 4.32%;
 }
 
+
 /* =========================================
    5. HERO BOXES
 ========================================= */
@@ -552,6 +557,7 @@ h4 { font-size: 14px; }
     color: var(--ibtech-yellow);
 }
 
+
 /* =========================================
    6. GENERAL PAGE SECTIONS
 ========================================= */
@@ -592,6 +598,7 @@ h4 { font-size: 14px; }
     background: var(--ibtech-yellow);
 }
 
+
 /* =========================================
    7. BUTTONS
 ========================================= */
@@ -628,6 +635,7 @@ h4 { font-size: 14px; }
     background: var(--ibtech-yellow);
 }
 
+
 /* =========================================
    8. ABOUT AND WHY CHOOSE US
 ========================================= */
@@ -663,6 +671,7 @@ h4 { font-size: 14px; }
 #features .service_item h3 {
     color: var(--ibtech-blue);
 }
+
 
 /* =========================================
    9. COURSES
@@ -742,6 +751,7 @@ h4 { font-size: 14px; }
     font-weight: 500;
 }
 
+
 /* =========================================
    10. REGISTRATION SECTION
 ========================================= */
@@ -816,6 +826,7 @@ h4 { font-size: 14px; }
     color: var(--ibtech-blue);
 }
 
+
 /* =========================================
    11. SEARCH FORM
 ========================================= */
@@ -850,6 +861,7 @@ h4 { font-size: 14px; }
     border: none;
     cursor: pointer;
 }
+
 
 /* =========================================
    12. SERVICES AND COURSES
@@ -892,6 +904,7 @@ h4 { font-size: 14px; }
     width: auto;
     object-fit: contain;
 }
+
 
 /* =========================================
    13. EVENTS / OTHER SERVICES
@@ -951,6 +964,7 @@ h4 { font-size: 14px; }
     height: auto;
 }
 
+
 /* =========================================
    14. INSTRUCTORS
 ========================================= */
@@ -962,6 +976,7 @@ h4 { font-size: 14px; }
 #instructors p {
     line-height: 2;
 }
+
 
 /* =========================================
    15. GALLERY
@@ -995,6 +1010,7 @@ h4 { font-size: 14px; }
     transform: scale(1.02);
 }
 
+
 /* =========================================
    16. LOCATION MAP
 ========================================= */
@@ -1010,20 +1026,10 @@ h4 { font-size: 14px; }
     border: 0;
 }
 
+
 /* =========================================
-   
+   17. TESTIMONIALS SECTION
 ========================================= */
-
-
-
-/* =================================
-   TESTIMONIALS SECTION
-================================= */
-
-
-/* =================================
-   TESTIMONIALS SECTION
-================================= */
 
 .testimonials {
     background: #ffffff !important;
@@ -1061,36 +1067,171 @@ h4 { font-size: 14px; }
 }
 
 /* Testimonial slider dots */
+
 .testimonials_slider .owl-dot.active span {
     background: #0f4c75 !important;
 }
 
-/* =================================
-   FOOTER SECTION
-================================= */
+
+/* =========================================
+   18. IBTECH STANDARD DOUBLE-WAVE FOOTER
+========================================= */
 
 .footer {
-    background: #0f4c75 !important;
+    position: relative;
+    width: 100%;
+    background: #0f4c75;
     color: #ffffff;
+    padding: 150px 0 0;
+    margin-top: 100px;
+    overflow: hidden;
 }
 
-.footer .newsletter,
-.footer .footer_content,
-.footer .footer_bar {
-    background: #0f4c75 !important;
+/* Double-layer wave */
+
+.footer_wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 120px;
 }
 
-.footer p,
-.footer h1,
-.footer h2,
-.footer h3,
-.footer a,
-.footer span {
+/* Footer content */
+
+.footer_content {
+    position: relative;
+    z-index: 2;
+    padding: 50px 0 40px;
+}
+
+.footer_content h4 {
     color: #ffffff;
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 25px;
 }
 
-.footer a:hover {
-    color: #0f4c75 !important;
+.footer_content p {
+    color: #dceaf3;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.footer_content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer_content ul li {
+    margin-bottom: 12px;
+}
+
+.footer_content ul li a {
+    color: #dceaf3;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer_content ul li a:hover {
+    color: #ffffff;
+    padding-left: 5px;
+}
+
+/* Contact information */
+
+.footer_contact p {
+    margin-bottom: 12px;
+}
+
+.footer_contact i {
+    color: #3282b8;
+    margin-right: 10px;
+}
+
+.footer_contact a {
+    color: #dceaf3;
+}
+
+/* Newsletter */
+
+.newsletter_form {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.newsletter_form input {
+    width: 70%;
+    min-width: 0;
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 13px;
+}
+
+.newsletter_form button {
+    width: 30%;
+    border: none;
+    padding: 12px 8px;
+    background: #3282b8;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter_form button:hover {
+    background: #ffffff;
+    color: #0f4c75;
+}
+
+/* Social media */
+
+.footer_social {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.footer_social a {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #3282b8;
+    color: #ffffff;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer_social a:hover {
+    background: #ffffff;
+    color: #0f4c75;
+    transform: translateY(-4px);
+}
+
+/* Copyright */
+
+.footer_bar {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding: 22px 0;
+    margin-top: 20px;
+}
+
+.footer_bar p {
+    color: #dceaf3;
+    font-size: 13px;
+    margin: 0;
 }
 
 
@@ -1099,6 +1240,7 @@ h4 { font-size: 14px; }
 ========================================= */
 
 /* Large laptops and smaller desktops */
+
 @media screen and (max-width: 1200px) {
 
     .header {
@@ -1134,7 +1276,9 @@ h4 { font-size: 14px; }
     }
 }
 
+
 /* Tablets */
+
 @media screen and (max-width: 991px) {
 
     .header {
@@ -1214,21 +1358,28 @@ h4 { font-size: 14px; }
         padding: 65px 25px;
     }
 
-    .footer_content {
-        padding-top: 55px;
-        padding-bottom: 45px;
-    }
-
-    .footer_col {
-        margin-bottom: 30px;
-    }
-
     #gallery .row > div img {
         height: 240px !important;
     }
+
+    /* Footer */
+
+    .footer {
+        padding-top: 120px;
+    }
+
+    .footer_content {
+        padding-top: 35px;
+    }
+
+    .footer_content .col-lg-3 {
+        margin-bottom: 35px;
+    }
 }
 
+
 /* Mobile phones and small tablets */
+
 @media screen and (max-width: 767px) {
 
     .header {
@@ -1355,37 +1506,6 @@ h4 { font-size: 14px; }
         font-size: 28px;
     }
 
-    .newsletter {
-        padding: 50px 15px 35px;
-    }
-
-    .newsletter h1 {
-        font-size: 27px;
-    }
-
-    .footer_content {
-        padding-top: 45px;
-        padding-bottom: 35px;
-    }
-
-    .footer_column_content {
-        margin-top: 18px;
-    }
-
-    .footer_bar {
-        text-align: center;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .footer_social {
-        margin-left: 0 !important;
-    }
-
-    .footer_social .menu_social {
-        justify-content: center;
-    }
-
     .testimonials_slider_container {
         padding-left: 5px;
         padding-right: 5px;
@@ -1407,9 +1527,43 @@ h4 { font-size: 14px; }
     #location iframe {
         height: 350px;
     }
+
+    /* Footer */
+
+    .footer {
+        padding-top: 90px;
+        margin-top: 70px;
+    }
+
+    .footer_wave {
+        height: 85px;
+    }
+
+    .footer_content {
+        padding: 25px 15px 15px;
+    }
+
+    .footer_content h4 {
+        font-size: 19px;
+        margin-bottom: 15px;
+    }
+
+    .footer_content .col-lg-3 {
+        margin-bottom: 30px;
+    }
+
+    .newsletter_form {
+        max-width: 450px;
+    }
+
+    .footer_bar {
+        margin-top: 10px;
+    }
 }
 
+
 /* Small phones */
+
 @media screen and (max-width: 575px) {
 
     .logo_container {
@@ -1437,18 +1591,6 @@ h4 { font-size: 14px; }
         font-size: 23px;
     }
 
-    .newsletter h1 {
-        font-size: 23px;
-    }
-
-    .footer_about_text {
-        padding-right: 0;
-    }
-
-    .footer_column_title {
-        font-size: 17px;
-    }
-
     .event_date {
         width: 100px;
         height: 100px;
@@ -1465,9 +1607,27 @@ h4 { font-size: 14px; }
     #location iframe {
         height: 300px;
     }
+
+    .footer {
+        padding-top: 75px;
+    }
+
+    .footer_wave {
+        height: 65px;
+    }
+
+    .newsletter_form input {
+        width: 65%;
+    }
+
+    .newsletter_form button {
+        width: 35%;
+    }
 }
 
+
 /* Very small phones */
+
 @media screen and (max-width: 380px) {
 
     .hero_slide_content h1 {
