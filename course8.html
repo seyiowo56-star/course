@@ -8,6 +8,7 @@
     <title>Diploma in Java | IBTECH Computer Training</title>
 
     <link rel="stylesheet" href="stylecourse.css">
+    <link rel="stylesheet" href="haeder.css">
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -16,32 +17,61 @@
 <body>
 
     <!-- HEADER -->
-    <header class="header">
-        <div class="container nav-container">
+    <input type="checkbox" id="menu-toggle">
 
-            <a href="index.html" class="logo">
+<header class="header">
+
+    <div class="header_content">
+
+        <div class="logo_container">
+            <a href="#home" class="logo">
                 <img src="img/logo.png" alt="IBTECH Computer Training Logo">
             </a>
-
-            <nav class="navbar">
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="index.html#courses" class="active">Courses</a></li>
-                    <li><a href="index.html#location">Location</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                    <li><a href="news.html">News</a></li>
-                </ul>
-            </nav>
-
-            <a href="registration.html" class="nav-btn">Register Now</a>
-
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-
         </div>
-    </header>
+
+        <nav class="main_nav_container">
+            <ul class="main_nav_list">
+                <li class="main_nav_item"><a href="index.html#home">Home</a></li>
+                <li class="main_nav_item"><a href="index.html#about us">About Us</a></li>
+                <li class="main_nav_item"><a href="index.html#courses">Courses</a></li>
+                <li class="main_nav_item"><a href="index.html#location">Location</a></li>
+                <li class="main_nav_item"><a href="index.html#contact">Contact</a></li>
+                <li class="main_nav_item"><a href="index.html#news.html">News</a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="header_side">
+        <p>
+            +2349138185299 <br>
+            +2348030749709
+        </p>
+    </div>
+
+    <label for="menu-toggle" class="hamburger_container">
+        <i class="fas fa-bars"></i>
+    </label>
+
+</header>
+
+<!-- MOBILE MENU -->
+<div class="menu_container">
+
+    <label for="menu-toggle" class="menu_close_container">
+        <i class="fas fa-times"></i>
+    </label>
+
+    <ul class="menu">
+        <li class="menu_item"><a href="index.html#home">Home</a></li>
+        <li class="menu_item"><a href="index.html#about">About Us</a></li>
+        <li class="menu_item"><a href="index.html#courses">Courses</a></li>
+        <li class="menu_item"><a href="index.html#location">Location</a></li>
+        <li class="menu_item"><a href="index.html#contact">Contact</a></li>
+        <li class="menu_item"><a href="index.html#news.html">News</a></li>
+    </ul>
+
+</div>
 
 
     <!-- COURSE BANNER -->
@@ -72,7 +102,7 @@
             <main class="course-main">
 
                 <div class="course-image">
-                    <img src="img/java-development.jpg"
+                    <img src="img/75cf1662ec7d1930d7dc00661baa84eb0.jpg"
                          alt="Java Programming Training">
                 </div>
 
@@ -493,25 +523,7 @@
     <footer class="footer">
 
         <!-- DOUBLE-LAYER BLUE WAVE -->
-        <div class="footer-wave">
-
-            <svg viewBox="0 0 1440 150"
-                 xmlns="http://www.w3.org/2000/svg"
-                 preserveAspectRatio="none">
-
-                <path
-                    fill="#3282b8"
-                    d="M0,80 C180,130 360,20 540,65 C720,110 900,135 1080,75 C1260,15 1350,45 1440,65 L1440,150 L0,150 Z">
-                </path>
-
-                <path
-                    fill="#0f4c75"
-                    d="M0,105 C180,55 360,130 540,100 C720,70 900,45 1080,95 C1260,145 1350,110 1440,90 L1440,150 L0,150 Z">
-                </path>
-
-            </svg>
-
-        </div>
+       
 
 
         <div class="container footer-container">
